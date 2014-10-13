@@ -1,0 +1,48 @@
+
+# check version
+sudo docker version
+
+sudo service docker restart
+
+sudo docker pull ubuntu
+sudo docker pull dockerfile/ubuntu-desktop
+
+# run a docker 
+sudo docker run -i -t ubuntu /bin/bash
+sudo docker run -d ubuntu
+
+# Lists containers.
+docker ps 
+
+# 
+docker logs - Shows us the standard output of a container.
+docker stop - Stops running containers.
+
+
+#start python webapp.
+sudo docker run -d -P training/webapp python app.py
+localhost:49155
+
+#build image from docker file.
+if there is file named Dockerfile.
+sdoc build  -t="juniuszhou/first_ubuntu_1404:v4" - < Dockerfile
+docker build -t yourname/imagename:yourtagname 
+docker build -t yourname/imagename:yourtagname - < yourdockerfilename
+
+ sdoc build -t juniuszhou/docker-desktop:v1 git://github.com/rogaha/docker-desktop.git
+ 
+docker file example.
+FROM ubuntu
+RUN apt-get update
+RUN apt-get upgrade
+
+#image command
+sudo docker images
+
+
+#image create pull and push.
+sudo docker commit -m="new ubuntu desktop" -a="junius" 286f36d74643 juniuszhou/first_ubuntu_1404:v1
+sudo docker push juniuszhou/first_ubuntu_1404
+
+docker save debian02 >/root/debian02.tar #debian02镜像打包 
+docker load < debian02.tar #导入镜像  
